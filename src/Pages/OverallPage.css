@@ -1,0 +1,17 @@
+.overallPage-container {
+    /* height: 100vh; */
+    /* width: 100 */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: end; */
+    /* margin-left: 1rem; */
+    overflow: hidden;
+}
+.stateComponents-container{
+    background-color: #F4F5F8;
+    /* background-color: blue; */
+    /* width: max-content; */
+    overflow: hidden;
+    overflow-x: auto;
+}
