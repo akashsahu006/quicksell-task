@@ -11,7 +11,7 @@ const Card = ({id,title,groupingState, tag,user}) => {
       <div className='top-section'>
         <p>{id}</p>
         {groupingState==="User" ? <div></div>:<div className='profile-container'>
-          <img src={profilePic} className='profile-pic' />
+          <img src={profilePic} alt="img" className='profile-pic' />
           <span className={`status ${user[0].available? 'available' : 'notAvailable'}`} ></span>
         </div>}
       </div>

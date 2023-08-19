@@ -16,7 +16,7 @@ import todoPic from "../Assets/images/todo.png"
 import backlogPic from "../Assets/images/backlog.png"
 import inProgressPic from "../Assets/images/inProgress.png"
 
-const StateComponents = ({loading, setLoading, orderingState, groupingState}) => {
+const StateComponents = ({setGroupingState, loading, setLoading, orderingState, groupingState}) => {
     const [globalData, setGlobalData] = useState([]);
     const [userData,setUserData] = useState([]);
 
@@ -77,6 +77,7 @@ const StateComponents = ({loading, setLoading, orderingState, groupingState}) =>
         
         
     ]
+   
 
     useEffect( () => {
 
@@ -131,7 +132,8 @@ const StateComponents = ({loading, setLoading, orderingState, groupingState}) =>
             const jsonData = await apiData.json();
             
             setUserData(jsonData.users);
-
+            localStorage.setItem("groupingState", groupingState);
+            localStorage.setItem("orderingState", orderingState);
             if(groupingState === 'Priority'){
                 filterFunction(priorityArray,jsonData);
                 setLoading(false);

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import StateComponents from '../Components/StateComponents'
 import Navbar from '../Components/Marginals/Navbar'
 import "./OverallPage.css"
 
 const OverallPage =  () => {
-    const [groupingState, setGroupingState] = useState('Priority')
-    const [orderingState, setOrderingState] = useState('Priority')
+    const [groupingState, setGroupingState] = useState(localStorage.getItem("groupingState") !== null ? localStorage.getItem("groupingState") : 'Priority')
+    const [orderingState, setOrderingState] = useState(localStorage.getItem("orderingState") !== null ? localStorage.getItem("orderingState") : 'Priority')
     const [loading,setLoading] = useState(false);
     return (
     <div className='overallPage-container'>
@@ -13,7 +13,7 @@ const OverallPage =  () => {
         <Navbar setLoading={setLoading} orderingState={orderingState} setOrderingState={setOrderingState} groupingState={groupingState} setGroupingState={setGroupingState}/>
      
         <div className='stateComponents-container'>
-          <StateComponents loading={loading} setLoading={setLoading} orderingState={orderingState} groupingState={groupingState}/>
+          <StateComponents setGroupingState={setGroupingState} loading={loading} setLoading={setLoading} orderingState={orderingState} groupingState={groupingState}/>
         </div>
     </div>
   )

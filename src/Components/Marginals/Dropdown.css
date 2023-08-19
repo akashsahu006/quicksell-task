@@ -1,7 +1,5 @@
 .menu-trigger{
     width: 120px;
-    /* background-color: #F8F9FB; */
-    /* background-color: red; */
     cursor: pointer;
     margin-left: 3px;
     margin-bottom: 0;
@@ -36,16 +34,8 @@
     
 }
 
-/* .inner{
-    justify-content: center;
-
-
-    font-weight: 100;
-    font-size: 0.3rem;
-} */
 .dropdown-menu-container{
     height: 100%;
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,7 +75,6 @@
     margin-top: 1px;
     background-color: #F8F8F8;
     border-radius: 0.2rem;
-    /* justify-content: end; */
     justify-content: center;
     align-items: center;
     box-shadow: #43475545 0px 0px 0.15em;
@@ -99,8 +88,6 @@
     width: min-content;
 
     flex-direction: column;
-    /* justify-content: ; */
-    /* background-color: red; */
     transform: translateX(-20px);
     
     align-items: center;
@@ -142,13 +129,11 @@
 
     justify-content: space-between;
     align-items: center;
-    /* width: 140px; */
     height: 16px;
     margin-top: 6px;
     padding: 0 0 6px 0;
     transform: translateX(-20px);
     
-    /* font-size: 0.5rem; */
     font-weight: 500;
     > p {
         color: #A7A7A9;
@@ -164,14 +149,10 @@
     align-items: center;
     padding: 3px 6px;
     width: 80px;
-    /* margin-bottom: 3px; */
     cursor: pointer;
     height: 15px;
-    /* border: solid black 0.1px; */
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.15em;
     border-radius: 2px;
-    /* padding: 0 3px 0 3px; */
-    /* background-color: blue; */
      > p {
         color: black;
         font-size: 0.9rem;

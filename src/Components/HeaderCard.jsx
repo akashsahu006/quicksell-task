@@ -9,9 +9,9 @@ const HeaderCard = ({src,title, count,groupingState,user}) => {
         <div className='header-card-container'>
         
           {groupingState==="User" ? <div className='profile-container'>
-            <img src={profilePic} className='profile-pic' />
-            <span className={`status ${user[0].available ? 'available' : 'notAvailable'}`} ></span>
-          </div>:<div><img src={src} style={{width:"20px", transform: "translateY(3px)"}} /></div>}
+            <img src={profilePic} alt='img' className='profile-pic' />
+            <span className={`status  ${user[0].available ? 'available' : 'notAvailable'}`} ></span>
+          </div>:<div><img src={src} alt='img' style={{width:"20px", transform: "translateY(3px)"}} /></div>}
             <h3>{title}</h3>
             <p>{count}</p>
         </div>

@@ -14,7 +14,7 @@ const DropdownItem = ({setLoading, state,setDropdownOptionState,setOtherDropdown
                         setOtherDropdownState(false);
                     }}>
                     <p>{state}</p>
-                    <img src={downArrow} className='inner-down-arrow '/>
+                    <img src={downArrow} alt='img' className='inner-down-arrow '/>
                 </div>
                 <div className={`inner-dropdown-menu ${dropDownState? 'active' : 'inactive'}`}>
                     <ul className='inner-dropdown-menu-container'>
@@ -49,9 +49,9 @@ return (
             setDropdownGroupingState(false);
             setDropdownOrderingState(false);
             }}>
-            <img src={adjustmentPic} className='adjustment' />
+            <img src={adjustmentPic} alt="img" className='adjustment' />
             <p>Display</p>
-            <img src={downArrow} className='down-arrow' />
+            <img src={downArrow} alt="img" className='down-arrow' />
         </div>
         <div className={`dropdown-menu ${dropDownState? 'active' : 'inactive'}`}>
             <ul className='dropdown-menu-container'>
