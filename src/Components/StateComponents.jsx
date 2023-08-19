@@ -154,7 +154,7 @@ const StateComponents = ({setGroupingState, loading, setLoading, orderingState, 
         !loading ? <div className='columnContainer'>
                 {globalData.map((curStatus) => {                
                     return (
-                        <div className='eachContainer'>
+                        <div key={curStatus.name} className='eachContainer'>
                             {groupingState==="User" && <HeaderCard title={curStatus.name} count={curStatus.len} groupingState={groupingState} user={userData.filter((curData) => {
                                         return curData.id === curStatus.childData[0].userId
                                 })}/> }                            
@@ -164,7 +164,7 @@ const StateComponents = ({setGroupingState, loading, setLoading, orderingState, 
                             }
                         {curStatus.childData.map(data => {
                             return (
-                                <Card id={data.id} title={data.title} tag={data.tag[0]} groupingState={groupingState}  user={userData.filter((curData) => {
+                                <Card key={data.id} id={data.id} title={data.title} tag={data.tag[0]} groupingState={groupingState}  user={userData.filter((curData) => {
                                     return curData.id === data.userId
                                 })}/>
                             )
@@ -172,7 +172,7 @@ const StateComponents = ({setGroupingState, loading, setLoading, orderingState, 
                         </div>
                     )
                 })}
-        </div> : <div className='loading'><div class="loader"></div></div>
+        </div> : <div className='loading'><div className="loader"></div></div>
   )
 }
 

@@ -5,7 +5,6 @@ import profilePic from "../Assets/images/profile.png"
 import grayCirclePic from  "../Assets/images/greyCircle.png"
 
 const Card = ({id,title,groupingState, tag,user}) => {
-  // console.log(user[0].available);
   return (
     <div className='card-container'>
       <div className='top-section'>
@@ -20,9 +19,7 @@ const Card = ({id,title,groupingState, tag,user}) => {
       </div>
       <div>
         <div className='bottom-section'>
-          {/* <div className='dot-icon'>
-            <h4>...</h4>
-          </div> */}
+          
           <div className='tag-section'>
             <img src={grayCirclePic} alt="" />
             <p>{tag}</p>

@@ -20,12 +20,12 @@ const DropdownItem = ({setLoading, state,setDropdownOptionState,setOtherDropdown
                     <ul className='inner-dropdown-menu-container'>
                         {options.map((option) => {
                             return (
-                                <h1 onClick={() => {
-                                    setDropdownOptionState(option);
-                                    if(state !== option){
+                                <h1 key={option.id} onClick={() => {
+                                    setDropdownOptionState(option.name);
+                                    if(state !== option.name){
                                         setLoading(true);
                                     }
-                                }}>{option}</h1>
+                                }}>{option.name}</h1>
                             )
                         })}
                     </ul>
@@ -40,8 +40,29 @@ const [dropDownState, setDropdownState] = useState(false);
 const [dropDownGroupingState, setDropdownGroupingState] = useState(false);
 const [dropDownOrderingState, setDropdownOrderingState] = useState(false);
 
-const groupingOptions = ['Status','Priority','User'];
-const orderingOptions = ['Priority', 'Title']
+const groupingOptions = [
+    {
+        id:0,
+        name:'Status'
+    },
+    {
+        id:1,
+        name:'Priority'
+    },
+    {
+        id:2,
+        name:'User'
+    }
+];
+const orderingOptions = [
+    {
+        id:0,
+        name:'Priority'
+    },
+    { 
+        id:1,
+        name:'Title'
+    }]
 return (
     <div className='menu-container'>
         <div className='menu-trigger' onClick={() => {

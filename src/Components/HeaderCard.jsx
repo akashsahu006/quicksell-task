@@ -3,7 +3,6 @@ import "./HeaderCard.css"
 import profilePic from "../Assets/images/profile.png"
 
 const HeaderCard = ({src,title, count,groupingState,user}) => {
-  console.log(src)
   return (
     <div className='container'>
         <div className='header-card-container'>
