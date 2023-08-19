@@ -1,10 +1,17 @@
 import React from 'react'
 import "./HeaderCard.css"
+import profilePic from "../Assets/images/profile.png"
 
-const HeaderCard = ({title, count}) => {
+const HeaderCard = ({src,title, count,groupingState,user}) => {
+  console.log(src)
   return (
     <div className='container'>
         <div className='header-card-container'>
+        
+          {groupingState==="User" ? <div className='profile-container'>
+            <img src={profilePic} className='profile-pic' />
+            <span className={`status ${user[0].available ? 'available' : 'notAvailable'}`} ></span>
+          </div>:<div><img src={src} style={{width:"20px", transform: "translateY(3px)"}} /></div>}
             <h3>{title}</h3>
             <p>{count}</p>
         </div>

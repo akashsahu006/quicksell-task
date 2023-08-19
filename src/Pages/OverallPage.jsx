@@ -6,13 +6,14 @@ import "./OverallPage.css"
 const OverallPage =  () => {
     const [groupingState, setGroupingState] = useState('Priority')
     const [orderingState, setOrderingState] = useState('Priority')
+    const [loading,setLoading] = useState(false);
     return (
     <div className='overallPage-container'>
       
-        <Navbar orderingState={orderingState} setOrderingState={setOrderingState} groupingState={groupingState} setGroupingState={setGroupingState}/>
+        <Navbar setLoading={setLoading} orderingState={orderingState} setOrderingState={setOrderingState} groupingState={groupingState} setGroupingState={setGroupingState}/>
      
         <div className='stateComponents-container'>
-          <StateComponents orderingState={orderingState} groupingState={groupingState}/>
+          <StateComponents loading={loading} setLoading={setLoading} orderingState={orderingState} groupingState={groupingState}/>
         </div>
     </div>
   )

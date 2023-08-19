@@ -2,8 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import "./Dropdown.css"
 import downArrow from "../../Assets/images/down_arrow.png"
+import adjustmentPic from "../../Assets/images/adjustment.png"
 
-const DropdownItem = ({state,setDropdownOptionState,setOtherDropdownState, options, title,dropDownState,setDropdownState}) => {
+const DropdownItem = ({setLoading, state,setDropdownOptionState,setOtherDropdownState, options, title,dropDownState,setDropdownState}) => {
     return (
         <div className='dropdown-item'>
             <p >{title}</p>
@@ -19,7 +20,12 @@ const DropdownItem = ({state,setDropdownOptionState,setOtherDropdownState, optio
                     <ul className='inner-dropdown-menu-container'>
                         {options.map((option) => {
                             return (
-                                <h1 onClick={() => setDropdownOptionState(option)}>{option}</h1>
+                                <h1 onClick={() => {
+                                    setDropdownOptionState(option);
+                                    if(state !== option){
+                                        setLoading(true);
+                                    }
+                                }}>{option}</h1>
                             )
                         })}
                     </ul>
@@ -29,27 +35,28 @@ const DropdownItem = ({state,setDropdownOptionState,setOtherDropdownState, optio
     );
 }
 
-const Dropdown = ({orderingState, setOrderingState, groupingState, setGroupingState}) => {
+const Dropdown = ({setLoading,orderingState, setOrderingState, groupingState, setGroupingState}) => {
 const [dropDownState, setDropdownState] = useState(false);
-const [dropDownState1, setDropdownState1] = useState(false);
-const [dropDownState3, setDropdownState3] = useState(false);
+const [dropDownGroupingState, setDropdownGroupingState] = useState(false);
+const [dropDownOrderingState, setDropdownOrderingState] = useState(false);
 
-const groupingOptions = ['Status','User','Priority'];
+const groupingOptions = ['Status','Priority','User'];
 const orderingOptions = ['Priority', 'Title']
 return (
     <div className='menu-container'>
         <div className='menu-trigger' onClick={() => {
             setDropdownState(!dropDownState);
-            setDropdownState1(false);
-            setDropdownState3(false);
+            setDropdownGroupingState(false);
+            setDropdownOrderingState(false);
             }}>
+            <img src={adjustmentPic} className='adjustment' />
             <p>Display</p>
             <img src={downArrow} className='down-arrow' />
         </div>
         <div className={`dropdown-menu ${dropDownState? 'active' : 'inactive'}`}>
             <ul className='dropdown-menu-container'>
-                <DropdownItem state={groupingState} setDropdownOptionState={setGroupingState} setOtherDropdownState={setDropdownState3} options={groupingOptions} title={"Grouping"} dropDownState={dropDownState1} setDropdownState={setDropdownState1}/>
-                <DropdownItem state={orderingState} setDropdownOptionState={setOrderingState} setOtherDropdownState={setDropdownState1} options={orderingOptions} title={"Ordering"} dropDownState={dropDownState3} setDropdownState={setDropdownState3}/>
+                <DropdownItem setLoading={setLoading} state={groupingState} setDropdownOptionState={setGroupingState} setOtherDropdownState={setDropdownOrderingState} options={groupingOptions} title={"Grouping"} dropDownState={dropDownGroupingState} setDropdownState={setDropdownGroupingState}/>
+                <DropdownItem setLoading={setLoading} state={orderingState} setDropdownOptionState={setOrderingState} setOtherDropdownState={setDropdownGroupingState} options={orderingOptions} title={"Ordering"} dropDownState={dropDownOrderingState} setDropdownState={setDropdownOrderingState}/>
             </ul>
         </div>
     </div>
